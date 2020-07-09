@@ -6,8 +6,10 @@ app.get('/api/test', (req, res) => {
     res.send({ msg: 'hello server' });
 });
 
-app.get('/', (req, res) => {
-    res.send({ msg: 'Welcome to BTS album' });
+app.use(express.static('client/dist'));
+const path = require('path');
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
