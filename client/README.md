@@ -1,4 +1,4 @@
-# project-army
+# client
 
 ## Project setup
 ```
