@@ -5,17 +5,20 @@ module.exports = (app) => {
         res.send({ msg: 'hello server' });
     });
 
-    app.get('/auth/google', async (req, res) => {
+    app.get(
+        '/auth/google',
         passport.authenticate('google', {
             scope: ['profile', 'email'],
-        });
-    });
+        })
+    );
 
-    app.get('/auth/google/callback', (req, res) => {
-        passport.authenticate('google', (req, res) => {
+    app.get(
+        '/auth/google/callback',
+        passport.authenticate('google'),
+        (req, res) => {
             res.redirect('/');
-        });
-    });
+        }
+    );
 
     app.get('/api/logout', (req, res) => {
         req.logout();
