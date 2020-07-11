@@ -14,6 +14,12 @@ export default {
         console.log('inside mounted');
         const res = await axios.get('/api/test');
         console.log(res.data);
+
+        const albums = await axios.get('/api/albumList');
+        const id = albums.data[1]._id;
+        const body = { id, number: 10 };
+        const r = await axios.post('/api/album', body);
+        console.log(r.data);
     },
 };
 </script>

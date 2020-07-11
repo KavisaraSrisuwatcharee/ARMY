@@ -7,6 +7,7 @@ const keys = require('./config/keys');
 const passport = require('passport');
 require('./models/User');
 require('./models/AlbumList');
+require('./models/Album');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
@@ -25,6 +26,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/albumListRoutes')(app);
+require('./routes/userRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/dist'));
