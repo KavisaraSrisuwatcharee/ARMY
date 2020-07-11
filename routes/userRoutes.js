@@ -10,7 +10,7 @@ module.exports = (app) => {
         res.send(albums);
     });
 
-    app.post('/api/album', async (req, res) => {
+    app.post('/api/buy/album', async (req, res) => {
         const userId = req.user.googleId;
         const { id, number } = req.body;
 
@@ -40,5 +40,35 @@ module.exports = (app) => {
         }
         const user = await req.user.save();
         res.send(user);
+    });
+
+    app.post('/api/sell/album', async (req, res) => {
+        const userId = req.user.googleId;
+        const { id, number } = req.body;
+
+        const album = await AlbumList.findOne({ _id: id });
+        const price = album.nowPrice * number;
+
+        const existingAlbum = await Album.findOne({
+            owner: userId,
+            albumId: id,
+        });
+
+        if (existingAlbum) {
+            if (existingAlbum.number >= number) {
+                existingAlbum.number -= number;
+                await existingAlbum.save();
+                if (existingAlbum.number === 0) {
+                    await Album.deleteOne({ owner: userId, albumId: id });
+                }
+                req.user.money += price;
+                const user = await req.user.save();
+                res.send(user);
+            } else {
+                res.send({ msg: 'User cannot sell this album' });
+            }
+        } else {
+            res.send({ msg: 'User did not own this album' });
+        }
     });
 };

@@ -11,14 +11,17 @@
 import axios from 'axios';
 export default {
     async mounted() {
+        let chk = true;
+        if (!chk) return;
         console.log('inside mounted');
         const res = await axios.get('/api/test');
         console.log(res.data);
 
         const albums = await axios.get('/api/albumList');
         const id = albums.data[1]._id;
-        const body = { id, number: 10 };
-        const r = await axios.post('/api/album', body);
+        const body = { id, number: 12 };
+        // const r = await axios.post('/api/buy/album', body);
+        const r = await axios.post('/api/sell/album', body);
         console.log(r.data);
     },
 };
