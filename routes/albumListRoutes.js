@@ -8,6 +8,12 @@ module.exports = (app) => {
         res.send(albumList);
     });
 
+    app.get('/api/album', async (req, res) => {
+        const { id } = req.body;
+        const album = await AlbumList.findById(id);
+        res.send(album);
+    })
+
     app.post('/api/albumlist', async (req, res) => {
         const { name, price, pic } = req.body;
         const newAlbum = await new AlbumList({
@@ -17,5 +23,9 @@ module.exports = (app) => {
             nowPrice: price,
         }).save();
         res.send(newAlbum);
+    });
+
+    app.patch('/api/album', async (req, res) => {
+        
     });
 };
