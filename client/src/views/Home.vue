@@ -18,7 +18,7 @@ export default {
 </script>
 <style scoped>
 .home {
-  width: 100 vw;
-  height: 100vw;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
