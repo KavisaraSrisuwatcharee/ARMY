@@ -1,17 +1,18 @@
 <template>
   <div class="Navbar">
-    <v-toolbar  extended extension-height="100">
-      <v-btn icon>
+    <v-toolbar extended extension-height="100">
+      <v-text-field>
         <v-icon size="30">mdi-magnify</v-icon>
-      </v-btn>
+      </v-text-field>
 
       <v-spacer></v-spacer>
-      <v-toolbar-title style="font-size:30px">A R M Y</v-toolbar-title>
+
+      <v-btn text x-large>A R M Y</v-btn>
 
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon size="30">mdi-dots-vertical</v-icon>
       </v-btn>
     </v-toolbar>
   </div>
