@@ -30,7 +30,7 @@
 
 - **URL** : `/api/current_user`
 - **Method** : `GET`
-- **Auth required** : YES
+- **Auth required** : YES (Admin/User)
 - **Parameters** : None
 - **Body** : None
 
@@ -64,7 +64,7 @@
 
 - **URL** : `/api/logout`
 - **Method** : `GET`
-- **Auth required** : YES
+- **Auth required** : YES (Admin/User)
 - **Parameters** : None
 - **Body** : None
 
@@ -84,9 +84,6 @@
 
     **Response Body** : None
 
-- **Status code** : `500`
-
-    **Response Body** : None
 
 ---
 
@@ -98,7 +95,7 @@
 
 - **URL** : `/api/albumlist`
 - **Method** : `GET`
-- **Auth required** : YES
+- **Auth required** : NO
 - **Parameters** : None
 - **Body** : None
 
@@ -127,10 +124,95 @@
 
 #### Error Response
 
-- **Status code** : `401`
+- **Status code** : `500`
 
     **Response Body** : None
+
+---
+
+
+
+### Get specific album from store
+
+> Get specific album detail from store
+
+- **URL** : `/api/album`
+- **Method** : `GET`
+- **Auth required** : NO
+- **Parameters** :
+    - id = `Required`
+- **Body** : None
+
+
+
+#### Success Response
+
+- **Status code** : `200`
+
+    **Response Body**:
+
+    ```json
+    {
+      "id": <String>,
+      "name": <String>,
+      "pic": <String>,
+      "lastUpdated": <Date>,
+      "oldPrice": <Number>,
+      "nowPrice": <Number>
+    }
+    ```
+
+    
+
+#### Error Response
 
 - **Status code** : `500`
 
     **Response Body** : None
+
+---
+
+
+
+### Add new album to store
+
+> Add a new album to store (admin can only do this action)
+
+- **URL** : `/api/albumlist`
+- **Method** : `POST`
+- **Auth required** : YES (Admin)
+- **Parameters** :
+    - name = `Required`
+    - price = `Required`
+    - pic = `Required`
+- **Body** : None
+
+
+
+#### Success Response
+
+- **Status code** : `200`
+
+    **Response Body**:
+
+    ```json
+    {
+      "msg": "Add new album to store successfully."
+    }
+    ```
+
+
+
+#### Error Response
+
+- **Status code** : `500`
+
+    **Response Body** :
+
+    ```json
+    {
+      "msg": "Fail to add new album to store."
+    }
+    ```
+
+    
