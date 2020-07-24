@@ -26,6 +26,8 @@ module.exports = (app) => {
     });
 
     app.get('/api/current_user', (req, res) => {
-        res.send(req.user);
+        const { role, name, money } = req.user;
+        const user = { role, name, money };
+        res.send(user);
     });
 };
