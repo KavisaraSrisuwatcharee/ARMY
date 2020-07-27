@@ -1,19 +1,23 @@
 <template>
   <div class="home">
     <Navbar />
-    <Carousels />
+    <!-- <Carousels /> -->
+    <Album/>
+    
   </div>
 </template>
 
 <script>
 import Navbar from "../components/Navbar.vue";
 import Carousels from "../components/Carousels";
+import Album from "../components/Album";
 // @ is an alias to /src
 export default {
   components: {
     Navbar,
-    Carousels
-  }
+    Carousels,
+    Album,
+  },
 };
 </script>
 <style scoped>

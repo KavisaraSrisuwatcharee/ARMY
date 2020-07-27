@@ -1,10 +1,9 @@
 <template>
   <div class="Navbar">
-    <v-toolbar extended extension-height="100">
-      <v-text-field>
-        <v-icon size="30">mdi-magnify</v-icon>
-      </v-text-field>
-
+    <v-toolbar >
+      <v-btn icon>
+      <v-icon size="30">mdi-magnify</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
 
       <v-btn text x-large>A R M Y</v-btn>
