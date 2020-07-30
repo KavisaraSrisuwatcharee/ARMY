@@ -2,8 +2,18 @@
   <div class="home">
     <Navbar />
     <!-- <Carousels /> -->
-    <Album/>
-    
+    <v-container>
+    <div class="alb-1">
+      <v-row>
+      <div  v-for="(data,index) in albums" :key="index">
+        <v-col style="backgroud-color:red" cols="4">
+
+        <Album :data="data" />
+        </v-col>
+      </div>
+        </v-row>
+    </div>
+    </v-container>
   </div>
 </template>
 
@@ -13,6 +23,23 @@ import Carousels from "../components/Carousels";
 import Album from "../components/Album";
 // @ is an alias to /src
 export default {
+  data(){
+    return {
+    albums: [
+      {
+        name: "test1",
+        img: "Mapof.jpg",
+      },
+      {
+        name: "test2",
+        img: "cool.jpeg",
+      },
+      {
+        name: "test3",
+        img: "face.jpg",
+      },
+    ]
+  }},
   components: {
     Navbar,
     Carousels,
@@ -23,6 +50,10 @@ export default {
 <style scoped>
 .home {
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
+}
+.alb-1 {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
