@@ -1,27 +1,22 @@
 <template>
-
-  <div class="album">
-      <v-card max-width="350">
-        <v-img class="white--text align-end" height="350px" :src="data.img"></v-img>
-
-        <v-card-title class="pb-0" size="20px">{{data.name}}</v-card-title>
-
-        <v-card-actions>
-          <v-btn color="orange" text>Buy</v-btn>
-
-          <v-btn color="orange" text>Sell</v-btn>
-        </v-card-actions>
-      </v-card>
-  </div>
-    
+    <div class="album">
+        <img :src="data.img" width="100%" />
+        <div class="title">
+            <h3>{{ data.name }}</h3>
+        </div>
+    </div>
 </template>
 <script>
 export default {
-  props:["data"]
-}
+    props: ['data'],
+};
 </script>
 <style scoped>
 .album {
- 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.title {
+    padding: 5px;
+    background-color: whitesmoke;
 }
 </style>

@@ -215,4 +215,28 @@
     }
     ```
 
+---
+
+### Get all albums of current user
+
+> Get list of all albums detail of the current user
+
+- **URL** : `/api/albums`
+- **Method** : `GET`
+- **Auth required** : YES (User)
+- **Parameters** : None
+- **Body** : None
+
+
+
+#### Success Response
+
+- **Status code** : `200`
+
+    **Response Body**:
+
+    ```json
+    
+    ```
+
     
