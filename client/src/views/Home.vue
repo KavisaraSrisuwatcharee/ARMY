@@ -3,16 +3,11 @@
     <Navbar />
     <!-- <Carousels /> -->
     <v-container>
-    <div class="alb-1">
       <v-row>
-      <div  v-for="(data,index) in albums" :key="index">
-        <v-col style="backgroud-color:red" cols="4">
-
-        <Album :data="data" />
+        <v-col class="albumList" v-for="(data,index) in albums" :key="index" cols="4">
+          <Album :data="data" />
         </v-col>
-      </div>
-        </v-row>
-    </div>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -23,23 +18,36 @@ import Carousels from "../components/Carousels";
 import Album from "../components/Album";
 // @ is an alias to /src
 export default {
-  data(){
+  data() {
     return {
-    albums: [
-      {
-        name: "test1",
-        img: "Mapof.jpg",
-      },
-      {
-        name: "test2",
-        img: "cool.jpeg",
-      },
-      {
-        name: "test3",
-        img: "face.jpg",
-      },
-    ]
-  }},
+      albums: [
+        {
+          name: "test1",
+          img: "Photo/Mapof.jpg",
+        },
+        {
+          name: "test2",
+          img: "Photo/cool.jpeg",
+        },
+        {
+          name: "test3",
+          img: "Photo/face.jpg",
+        },
+        {
+          name:"test4",
+          img:"Photo/BTS-19.jpg",
+        },
+        {
+          name:"test5",
+          img:"Photo/skool.jpeg",
+        },
+        {
+          name:"test6",
+          img:"Photo/wings.webp",
+        }
+      ],
+    };
+  },
   components: {
     Navbar,
     Carousels,
@@ -52,8 +60,7 @@ export default {
   width: 100vw;
   height: 100vh;
 }
-.alb-1 {
-  display: flex;
-  flex-wrap: wrap;
+.albumList{
+  padding: 5% 2%;
 }
 </style>
