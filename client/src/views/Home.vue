@@ -16,6 +16,7 @@
 import Navbar from "../components/Navbar.vue";
 import Carousels from "../components/Carousels";
 import Album from "../components/Album";
+import axios from "../axios/axios.js";
 // @ is an alias to /src
 export default {
   data() {
@@ -53,6 +54,11 @@ export default {
     Carousels,
     Album,
   },
+  mounted(){
+     axios.get("/current_user").then(response => {
+       console.log(response.data);
+     })
+  }
 };
 </script>
 <style scoped>
