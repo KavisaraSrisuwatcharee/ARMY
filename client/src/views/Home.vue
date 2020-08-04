@@ -10,6 +10,7 @@
 
         <Album :data="data" />
         </v-col>
+        <a href="/auth/google">Hello</a>
       </div>
         </v-row>
     </div>
