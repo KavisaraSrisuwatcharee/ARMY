@@ -24,6 +24,14 @@ I have create the proxy setting on frontend side, so when you make a request to 
 
     **Response Body**: None
 
+#### Example
+
+````html
+<a href="/auth/google">Login</a>
+````
+
+
+
 ---
 
 
@@ -54,6 +62,12 @@ I have create the proxy setting on frontend side, so when you make a request to 
     }
     ```
 
+#### Example (Axios)
+
+```javascript
+const res = await axios.get('/api/current_user');
+```
+
 ***Note**
 
 > role of user can be user or admin
@@ -64,7 +78,7 @@ I have create the proxy setting on frontend side, so when you make a request to 
 
 ### Logout
 
-> Redirect to /api/logout (do not use axios, just user a tag to redirect the URL)
+> Redirect to /api/logout (do not use axios, just use <a> tag to redirect the URL)
 
 - **URL** : `/api/logout`
 - **Method** : `GET`
@@ -80,7 +94,12 @@ I have create the proxy setting on frontend side, so when you make a request to 
 
     **Response Body**: None
 
-    
+
+#### Example
+
+````html
+<a href="/api/logout">Logout</a>
+````
 
 #### Error Response
 
@@ -123,7 +142,10 @@ I have create the proxy setting on frontend side, so when you make a request to 
     ]
     ```
 
-    
+
+#### Example
+
+
 
 #### Error Response
 
@@ -142,15 +164,15 @@ I have create the proxy setting on frontend side, so when you make a request to 
 - **URL** : `/api/album`
 - **Method** : `GET`
 - **Auth required** : NO
-- **Parameters** : None
-- **Body** :
+- **Parameters** :
     - id = `Required`
+- **Body** : None
 
 #### Example (Axios)
 
 ```javascript
-const body = {id: 'f08bbb80235f21ada30d38a'}
-const res = await axios.get('/api/album', body);
+const params = {id: 'f08bbb80235f21ada30d38a'};
+const res = await axios.get('/api/album', {params});
 ```
 
 
@@ -202,9 +224,11 @@ const res = await axios.get('/api/album', body);
 #### Example (Axios)
 
 ```javascript
-const body = {name: 'BTS Tear',
-              price: 3000,
-              pic: 'https://f.ptcdn.info/645/067/000/q3uawrk5wJz1aakZYWh-o.jpg'}
+const body = {
+            	name: 'BTS Tear',
+            	price: 3000,
+            	pic: 'https://f.ptcdn.info/645/067/000/q3uawrk5wJz1aakZYWh-o.jpg',
+        		};
 const res = await axios.post('/api/albumlist', body);
 ```
 

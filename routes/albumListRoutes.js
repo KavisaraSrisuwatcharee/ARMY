@@ -13,8 +13,10 @@ module.exports = (app) => {
     });
 
     app.get('/api/album', async (req, res) => {
-        const { id } = req.body;
-        const data = await AlbumList.findById(id);
+        const { id } = req.query;
+        const data = await AlbumList.findOne({
+            _id: '5f08bbb80235f21ada30d38a',
+        });
         const album = parseAlbumList(data);
         res.send(album);
     });
@@ -22,15 +24,13 @@ module.exports = (app) => {
     app.post('/api/albumlist', async (req, res) => {
         try {
             const { name, price, pic } = req.body;
-            await new AlbumList({
+            const album = await new AlbumList({
                 name,
                 pic,
                 oldPrice: price,
                 nowPrice: price,
             }).save();
-            res.status(201).send({
-                msg: 'Add new album to store successfully.',
-            });
+            res.status(201).send(album);
         } catch (err) {
             res.status(400).send({ msg: 'Fail to add new album to store.' });
         }
