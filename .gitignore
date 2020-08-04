@@ -156,5 +156,6 @@ test/
 dist/
 npm-debug.log
 yarn-error.log
+test
 
 # End of https://www.toptal.com/developers/gitignore/api/node,vue,vuejs,macos
