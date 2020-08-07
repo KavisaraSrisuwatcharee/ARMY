@@ -15,7 +15,7 @@ module.exports = (app) => {
     app.get('/api/album', async (req, res) => {
         const { id } = req.query;
         const data = await AlbumList.findOne({
-            _id: '5f08bbb80235f21ada30d38a',
+            _id: id,
         });
         const album = parseAlbumList(data);
         res.send(album);
