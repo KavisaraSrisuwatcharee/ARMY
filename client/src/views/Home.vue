@@ -57,14 +57,9 @@ export default {
     },
     components: {
         Navbar,
-        Carousels,
         Album,
     },
-    mounted() {
-        axios.get('/current_user').then((response) => {
-            console.log(response.data);
-        });
-    },
+   
 };
 </script>
 <style scoped>

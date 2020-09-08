@@ -23,6 +23,4 @@ export default {
 };
 </script>
 <style scoped>
-.album {
-}
 </style>
