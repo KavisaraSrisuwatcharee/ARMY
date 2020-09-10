@@ -16,8 +16,11 @@
           <div class="name">{{current_user.name}}</div>
           <p>Money :</p>
           <div class="money">{{current_user.money}}</div>
-          <v-btn icon style="padding:0px 10px">
+          <v-btn icon style="margin:0px 20px">
             <v-icon size="30">mdi-cart</v-icon>
+          </v-btn>
+           <v-btn icon style="margin-left:30px;">
+            <v-icon size="30">mdi-logout</v-icon>
           </v-btn>
           <a href="/api/logout">Logout</a>
         </div>
@@ -53,12 +56,18 @@ export default {
 .login {
   display: flex;
   align-items: center;
-  background-color: aquamarine;
 }
 .login p {
   padding-top: 16px;
   padding-right: 8px;
   padding-left: 8px;
 }
-
+.login a{
+  /* padding:0px 8px; */
+  text-decoration: none;
+  color: gray;
+}
+.login .name{
+  padding:0px 8px;
+}
 </style>
